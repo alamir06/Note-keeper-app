@@ -1,32 +1,14 @@
 import React from "react";
+import Input from "./Input";
 
-
-var isLogin=true;
-
-function condiotionTest()
-{
-    if(isLogin)
-    {
-        return  <h1>Hello</h1>;
-    }
-    else {
-       return (
-        <div>
-        <form className="form-page">
-      <input type="text" placeholder="Enter username"/><br /><br />
-      <input type="text" placeholder="Enter password" /><br /><br />
-      <button type="submit">Register</button>
-      </form>
-        </div>
-        );
-    }
-}
-
-function Login(){
+function Login(props){
     return (
-     <div className="container">
-      {condiotionTest()}
-     </div>
+        <form className="form-page">
+          <Input title="title" place="enter your name" />
+          <Input title="password" place="enter password" />
+           {!props.isRegistered && <Input title="password" place="confirm pasworrd"/>} 
+          <button type="submit">Lgin</button>
+        </form>
      );
 }
 export default Login;
